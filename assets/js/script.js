@@ -30,7 +30,7 @@ $(".form-container").on("submit", function(event) {
     listItemEl.append(gotItButton, itemText, unavailableButton);
     $(itemCategory + "-container").append(listItemEl);
     id++;
-    $(this).reset();
+    // RESET FORM PLZ
 });
 
 // function to save list in localStorage
