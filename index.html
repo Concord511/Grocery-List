@@ -4,24 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <title>Grocery List</title>
 </head>
 <body>
     <header>
-
+        <h1>Grocery List</h1>
     </header>
-
+    
     <main>
-
+        <form class="form-container">
+            <div class="form-item-textarea">
+                <label for="new-item" class="form-label">List Item:</label>
+                <textarea id="new-item" rows="1" placeholder=" Enter Grocery Item Here"></textarea>
+            </div>
+            <div class="form-categories">
+                <div class="form-option">
+                    <input type="radio" name="store-section" id="produce" value="produce">
+                    <label class="form-label" for="produce">Produce</label>
+                </div>
+                <div class="form-option">
+                    <input type="radio" name="store-section" id="dairy" value="dairy">
+                    <label class="form-label" for="dairy">Dairy</label>
+                </div>
+                <div class="form-option">
+                    <input type="radio" name="store-section" id="meats" value="meats">
+                    <label class="form-label" for="meats">Meats</label>
+                </div>
+                <div class="form-option">
+                    <input type="radio" name="store-section" id="canned" value="canned">
+                    <label class="form-label" for="canned">Canned</label>
+                </div>
+                <div class="form-option">
+                    <input type="radio" name="store-section" id="noodles-sauces" value="noodles-sauces">
+                    <label class="form-label" for="noodles-sauces">Noodles &<br>Sauces</label>
+                </div>
+                <div class="form-option">
+                    <input type="radio" name="store-section" id="other" value="other" checked>
+                    <label class="form-label" for="other">Other</label>
+                </div>
+            </div>
+            <button type="submit" class="form-button">Add Item!</button>
+        </form>
+        <section>
+            <div class="store-sections" id="produce-container">
+                <h2 class="category-title">Produce Section:</h2>
+            </div>
+            <div class="store-sections" id="dairy-container">
+                <h2 class="category-title">Dairy Section:</h2>
+            </div>
+            <div class="store-sections" id="meats-container">
+                <h2 class="category-title">Meats Section:</h2>
+            </div>
+            <div class="store-sections" id="canned-container">
+                <h2 class="category-title">Canned Section:</h2>
+            </div>
+            <div class="store-sections" id="noodles-sauces-container">
+                <h2 class="category-title">Noodles/Sauce Section:</h2>
+            </div>
+            <div class="store-sections" id="other-container">
+                <h2 class="category-title">Other Section:</h2>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <h4>Made by Dungeon Bohemia</h4>
-    </footer>
-
-    <script src="assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
