@@ -1,4 +1,4 @@
-body {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -77,5 +77,50 @@ h2 {
     margin: 5px;
     border: 4px solid lightgrey;
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.ul-container {
+    width: 95%;
+}
+
+.item-container {
+    margin: 5px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+.got-it {
+    border-right: 2px solid black;
+    width: 10%;
+    height: 30px;
+    background-color: rgb(50, 150, 50);
+    box-shadow: 2px 0 5px black;
+}
+
+.list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    width: 80%;
+    z-index: 1;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    box-shadow: 2px 2px 5px black;
+}
+
+.unavailable {
+    border-left: 2px solid black;
+    width: 10%;
+    height: 30px;
+    background-color: rgb(255, 50, 50);
+    box-shadow: -2px 0 5px black;
+}

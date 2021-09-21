@@ -14,21 +14,23 @@ $(".form-container").on("submit", function(event) {
 
     var newItem = $("#new-item").val().trim();
     var itemCategory = $("input[name='store-section']:checked").val();
-    var listItemEl = $("<div>")
+    var listItemEl = $("<li>")
+        .addClass("item-container")
         .attr("id", id);
     var gotItButton = $("<button>")
         .addClass("got-it")
         .attr("id", "Yes" + id)
         .text("✓︁");
-    var unavailableButton = $("<button>")
-        .addClass("unavailable")
-        .attr("id", "No-" + id)
-        .text("X︁");
     var itemText = $("<span>")
         .addClass("list-item")
         .text(newItem);
+    var unavailableButton = $("<button>")
+    .addClass("unavailable")
+    .attr("id", "No-" + id)
+    .text("X︁");
     listItemEl.append(gotItButton, itemText, unavailableButton);
-    $(itemCategory + "-container").append(listItemEl);
+    console.log($("#" + itemCategory + "-container"));
+    $("#" + itemCategory + "-container").append(listItemEl);
     id++;
     // RESET FORM PLZ
 });
