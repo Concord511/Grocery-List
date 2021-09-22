@@ -37,7 +37,7 @@
                     <label class="form-label" for="canned">Canned</label>
                 </div>
                 <div class="form-option">
-                    <input type="radio" name="store-section" id="noodles-sauces" value="noodles-sauces">
+                    <input type="radio" name="store-section" id="noodles-sauces" value="noodlesSauces">
                     <label class="form-label" for="noodles-sauces">Noodles &<br>Sauces</label>
                 </div>
                 <div class="form-option">
@@ -45,38 +45,32 @@
                     <label class="form-label" for="other">Other</label>
                 </div>
             </div>
-            <button type="submit" class="form-button">Add Item!</button>
+            <button type="button" class="form-button">Add Item!</button>
         </form>
-        <section>
+        <section id="sections">
             <div class="store-sections">
                 <h2 class="category-title">Produce Section:</h2>
-                <ul id="produce-container"></ul>
+                <ul id="produce-container" class="ul-container"></ul>
             </div>
             <div class="store-sections" >
                 <h2 class="category-title">Dairy Section:</h2>
-                <ul id="dairy-container" class="ul-container">
-                    <li id="15" class="item-container">
-                        <button type="button" class="got-it">✓︁</button>
-                        <span class="list-item">Cheese</span>
-                        <button type="button" class="unavailable">X︁</button>
-                    </li>
-                </ul>
+                <ul id="dairy-container" class="ul-container"></ul>
             </div>
             <div class="store-sections" class="ul-container">
                 <h2 class="category-title">Meats Section:</h2>
-                <ul id="meats-container"></ul>
+                <ul id="meats-container" class="ul-container"></ul>
             </div>
             <div class="store-sections" class="ul-container">
                 <h2 class="category-title">Canned Section:</h2>
-                <ul id="canned-container"></ul>
+                <ul id="canned-container" class="ul-container"></ul>
             </div>
             <div class="store-sections" class="ul-container">
                 <h2 class="category-title">Noodles/Sauce Section:</h2>
-                <ul id="noodles-sauces-container"></ul>
+                <ul id="noodlesSauces-container" class="ul-container"></ul>
             </div>
             <div class="store-sections" class="ul-container">
                 <h2 class="category-title">Other Section:</h2>
-                <ul id="other-container"></ul>
+                <ul id="other-container" class="ul-container"></ul>
             </div>
         </section>
     </main>

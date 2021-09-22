@@ -33,6 +33,7 @@ h2 {
 }
 
 #new-item {
+    text-indent: 5px;
     width: 70%;
     border-radius: 10px;
 }
