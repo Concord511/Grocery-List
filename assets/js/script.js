@@ -106,8 +106,8 @@ const saveList = function() {
 const loadList = function() {
     list = JSON.parse(localStorage.getItem("list"));
     nextTime = JSON.parse(localStorage.getItem("nextTime"));
-    if (!nextTime) {
-        nextTime = {
+    if (!list && !nextTime) {
+        list = {
             produce: [],
             dairy: [],
             meats: [],
@@ -115,9 +115,7 @@ const loadList = function() {
             noodlesSauces: [],
             other: []
         }
-    }
-    if (!list && !nextTime) {
-        list = {
+        nextTime = {
             produce: [],
             dairy: [],
             meats: [],
@@ -127,18 +125,34 @@ const loadList = function() {
         };
     }
     else {
-        list = nextTime;
-        nextTime = {
-            produce: [],
-            dairy: [],
-            meats: [],
-            canned: [],
-            noodlesSauces: [],
-            other: []
+        // determine whether either list or nextTime are empty
+        let listEmpty = true;
+        let nextTimeEmpty = true;
+        for (let property in list) {
+            if (list[property].length > 0) {
+                listEmpty = false;
+            }
+        }
+        for (let property in nextTime) {
+            if (nextTime[property].length > 0) {
+                nextTimeEmpty = false;
+            }
+        }
+        if (listEmpty && !nextTimeEmpty) {
+            list = nextTime;
+            nextTime = {
+                produce: [],
+                dairy: [],
+                meats: [],
+                canned: [],
+                noodlesSauces: [],
+                other: []
+            }
         }
         saveList();
+        renderList(list);
     }
-    renderList(list);
+
 }
 
 loadList();
