@@ -12,13 +12,11 @@ let nextTime = {}
 
 // button handler for adding items
 $(".form-container").on("click", ".form-button", function(event) {
-    console.log("Triggered add item");
     var newItem = $("#new-item").val().trim();
     if (newItem === "") {
         return;
     }
     var itemCategory = $("input[name='store-section']:checked").val();
-    console.log(itemCategory);
     list[itemCategory].push(newItem);
     $("#new-item").val("");
     $("#other").prop("checked", true);
@@ -28,7 +26,6 @@ $(".form-container").on("click", ".form-button", function(event) {
 
 // button handler for green checkmark
 $('.store-sections').on("click", ".got-it", function() {
-    console.log("Triggered green checkmark");
     var property = $(this)
         .attr("id")
         .replace("Id", "");
@@ -40,7 +37,6 @@ $('.store-sections').on("click", ".got-it", function() {
 });
 
 $('.store-sections').on("click", ".unavailable", function() {
-    console.log("Triggered red X");
     var property = $(this)
         .attr("id")
         .replace("Id", "");
@@ -48,7 +44,6 @@ $('.store-sections').on("click", ".unavailable", function() {
         .closest("li").children("span")
         .text()
         .trim();
-    console.log(item);
     var index = $(this)
         .attr("propertyId");
     list[property].splice(index, 1);
