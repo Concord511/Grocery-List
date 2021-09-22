@@ -110,8 +110,8 @@ h2 {
     width: 10%;
     height: 30px;
     background-color: rgb(50, 150, 50);
-    box-shadow: -2px 2px 5px black; 
-    transition: all 1s ease-in-out;
+    box-shadow: inset 0 0 5px 0 black;
+    transition: box-shadow .15s;
 }
 
 .got-it:active {
@@ -131,7 +131,7 @@ h2 {
     background-color: blanchedalmond;
     border: 2px solid black;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px black;
+    box-shadow: inset 0 0 5px 0 black;
 }
 
 .unavailable {
@@ -142,8 +142,8 @@ h2 {
     height: 30px;
     z-index: 1;
     background-color: rgb(255, 50, 50);
-    box-shadow: 0 2px 5px black;
-    transition: all 1s ease-in-out;
+    box-shadow: inset 0 0 5px black;
+    transition: box-shadow .15s;
 }
 
 .unavailable:active {
