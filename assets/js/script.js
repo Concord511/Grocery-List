@@ -7,22 +7,18 @@ let ids = {
     otherId: 0
 }
 
-let list = {
-    produce: [],
-    dairy: [],
-    meats: [],
-    canned: [],
-    noodlesSauces: [],
-    other: []
-}
+let list = {}
+let nextTime = {}
 
-// Add item button handler
-$(".form-container").on("click", "button", function(event) {
+// button handler for adding items
+$(".form-container").on("click", ".form-button", function(event) {
+    console.log("Triggered add item");
     var newItem = $("#new-item").val().trim();
     if (newItem === "") {
         return;
     }
     var itemCategory = $("input[name='store-section']:checked").val();
+    console.log(itemCategory);
     list[itemCategory].push(newItem);
     $("#new-item").val("");
     $("#other").prop("checked", true);
@@ -30,14 +26,36 @@ $(".form-container").on("click", "button", function(event) {
     renderList(list);
 });
 
-// Green checkmark button handler
+// button handler for green checkmark
 $('.store-sections').on("click", ".got-it", function() {
-    var property = $(this).attr("id").replace("Id", "");
-    var index = $(this).attr("propertyId");
+    console.log("Triggered green checkmark");
+    var property = $(this)
+        .attr("id")
+        .replace("Id", "");
+    var index = $(this)
+        .attr("propertyId");
     list[property].splice(index, 1);
     saveList();
     renderList(list);
-})
+});
+
+$('.store-sections').on("click", ".unavailable", function() {
+    console.log("Triggered red X");
+    var property = $(this)
+        .attr("id")
+        .replace("Id", "");
+    var item = $(this)
+        .closest("li").children("span")
+        .text()
+        .trim();
+    console.log(item);
+    var index = $(this)
+        .attr("propertyId");
+    list[property].splice(index, 1);
+    nextTime[property].push(item);
+    saveList();
+    renderList(list);
+});
 
 // construct list elements
 const renderList = function(listObj) {
@@ -81,12 +99,24 @@ const renderList = function(listObj) {
 // function to save list in localStorage
 const saveList = function() {
     localStorage.setItem("list", JSON.stringify(list));
+    localStorage.setItem("nextTime", JSON.stringify(nextTime));
 }
 
 // function to load list from localStorage
 const loadList = function() {
     list = JSON.parse(localStorage.getItem("list"));
-    if (!list) {
+    nextTime = JSON.parse(localStorage.getItem("nextTime"));
+    if (!nextTime) {
+        nextTime = {
+            produce: [],
+            dairy: [],
+            meats: [],
+            canned: [],
+            noodlesSauces: [],
+            other: []
+        }
+    }
+    if (!list && !nextTime) {
         list = {
             produce: [],
             dairy: [],
@@ -96,6 +126,19 @@ const loadList = function() {
             other: []
         };
     }
+    else {
+        list = nextTime;
+        nextTime = {
+            produce: [],
+            dairy: [],
+            meats: [],
+            canned: [],
+            noodlesSauces: [],
+            other: []
+        }
+        saveList();
+    }
     renderList(list);
 }
+
 loadList();

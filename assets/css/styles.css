@@ -35,6 +35,8 @@ h2 {
 #new-item {
     text-indent: 5px;
     width: 70%;
+    height: 25px;
+    font-size: 18px;
     border-radius: 10px;
 }
 
