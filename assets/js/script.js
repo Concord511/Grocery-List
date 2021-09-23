@@ -12,17 +12,15 @@ let nextTime = {}
 
 // button handler for adding items
 $(".form-container").on("click", ".form-button", function(event) {
-    var newItem = $("#new-item").val().trim();
-    if (newItem === "") {
-        return;
-    }
-    var itemCategory = $("input[name='store-section']:checked").val();
-    list[itemCategory].push(newItem);
-    $("#new-item").val("");
-    $("#other").prop("checked", true);
-    saveList();
-    renderList(list);
+    addItem();
 });
+
+// return/enter handler for adding items
+$("#new-item").keypress(function(event) {
+    if (event.which === 13 && !event.shiftKey) {
+        addItem();
+    }
+})
 
 // button handler for green checkmark
 $('.store-sections').on("click", ".got-it", function() {
@@ -51,6 +49,20 @@ $('.store-sections').on("click", ".unavailable", function() {
     saveList();
     renderList(list);
 });
+
+// function to add item
+const addItem = function() {
+    var newItem = $("#new-item").val().trim();
+    if (newItem === "") {
+        return;
+    }
+    var itemCategory = $("input[name='store-section']:checked").val();
+    list[itemCategory].push(newItem);
+    $("#new-item").val("");
+    $("#other").prop("checked", true);
+    saveList();
+    renderList(list);
+};
 
 // construct list elements
 const renderList = function(listObj) {
